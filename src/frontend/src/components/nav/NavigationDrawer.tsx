@@ -79,13 +79,14 @@ function DrawerContent({ closeFunc }: Readonly<{ closeFunc?: () => void }>) {
         hidden: !user.hasViewPermission(ModelType.stockitem),
         icon: 'stock'
       },
-      {
-        id: 'build',
-        title: t`Manufacturing`,
-        link: '/manufacturing/',
-        hidden: !user.hasViewRole(UserRoles.build),
-        icon: 'build'
-      },
+      // SHUVENTORY: Manufacturing disabled
+      // {
+      //   id: 'build',
+      //   title: t`Manufacturing`,
+      //   link: '/manufacturing/',
+      //   hidden: !user.hasViewRole(UserRoles.build),
+      //   icon: 'build'
+      // },
       {
         id: 'purchasing',
         title: t`Purchasing`,
@@ -93,13 +94,14 @@ function DrawerContent({ closeFunc }: Readonly<{ closeFunc?: () => void }>) {
         hidden: !user.hasViewRole(UserRoles.purchase_order),
         icon: 'purchase_orders'
       },
-      {
-        id: 'sales',
-        title: t`Sales`,
-        link: '/sales/',
-        hidden: !user.hasViewRole(UserRoles.sales_order),
-        icon: 'sales_orders'
-      },
+      // SHUVENTORY: Sales disabled
+      // {
+      //   id: 'sales',
+      //   title: t`Sales`,
+      //   link: '/sales/',
+      //   hidden: !user.hasViewRole(UserRoles.sales_order),
+      //   icon: 'sales_orders'
+      // },
       {
         id: 'users',
         title: t`Users`,

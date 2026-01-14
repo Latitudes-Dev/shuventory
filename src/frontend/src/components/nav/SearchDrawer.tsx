@@ -272,14 +272,15 @@ export function SearchDrawer({
           user.hasViewRole(UserRoles.stock_location) &&
           userSettings.isSet('SEARCH_PREVIEW_SHOW_LOCATIONS')
       },
+      // SHUVENTORY: Manufacturing disabled
       {
         model: ModelType.build,
         parameters: {
           part_detail: true
         },
-        enabled:
-          user.hasViewRole(UserRoles.build) &&
-          userSettings.isSet('SEARCH_PREVIEW_SHOW_BUILD_ORDERS')
+        enabled: false // SHUVENTORY: disabled
+          // user.hasViewRole(UserRoles.build) &&
+          // userSettings.isSet('SEARCH_PREVIEW_SHOW_BUILD_ORDERS')
       },
       {
         model: ModelType.company,
@@ -301,15 +302,16 @@ export function SearchDrawer({
           user.hasViewRole(UserRoles.purchase_order) &&
           userSettings.isSet('SEARCH_PREVIEW_SHOW_COMPANIES')
       },
+      // SHUVENTORY: Customers disabled
       {
         model: ModelType.company,
         overviewUrl: '/sales/index/customers',
         searchKey: 'customer',
         title: t`Customers`,
         parameters: {},
-        enabled:
-          user.hasViewRole(UserRoles.sales_order) &&
-          userSettings.isSet('SEARCH_PREVIEW_SHOW_COMPANIES')
+        enabled: false // SHUVENTORY: disabled
+          // user.hasViewRole(UserRoles.sales_order) &&
+          // userSettings.isSet('SEARCH_PREVIEW_SHOW_COMPANIES')
       },
       {
         model: ModelType.purchaseorder,
@@ -325,6 +327,7 @@ export function SearchDrawer({
           user.hasViewRole(UserRoles.purchase_order) &&
           userSettings.isSet('SEARCH_PREVIEW_SHOW_PURCHASE_ORDERS')
       },
+      // SHUVENTORY: Sales orders disabled
       {
         model: ModelType.salesorder,
         parameters: {
@@ -335,17 +338,19 @@ export function SearchDrawer({
             ? true
             : undefined
         },
-        enabled:
-          user.hasViewRole(UserRoles.sales_order) &&
-          userSettings.isSet('SEARCH_PREVIEW_SHOW_SALES_ORDERS')
+        enabled: false // SHUVENTORY: disabled
+          // user.hasViewRole(UserRoles.sales_order) &&
+          // userSettings.isSet('SEARCH_PREVIEW_SHOW_SALES_ORDERS')
       },
+      // SHUVENTORY: Shipments disabled
       {
         model: ModelType.salesordershipment,
         parameters: {},
-        enabled:
-          user.hasViewRole(UserRoles.sales_order) &&
-          userSettings.isSet('SEARCH_PREVIEW_SHOW_SALES_ORDER_SHIPMENTS')
+        enabled: false // SHUVENTORY: disabled
+          // user.hasViewRole(UserRoles.sales_order) &&
+          // userSettings.isSet('SEARCH_PREVIEW_SHOW_SALES_ORDER_SHIPMENTS')
       },
+      // SHUVENTORY: Return orders disabled
       {
         model: ModelType.returnorder,
         parameters: {
@@ -356,7 +361,7 @@ export function SearchDrawer({
             ? true
             : undefined
         },
-        enabled:
+        enabled: false // SHUVENTORY: disabled
           user.hasViewRole(UserRoles.return_order) &&
           userSettings.isSet('SEARCH_PREVIEW_SHOW_RETURN_ORDERS')
       }
