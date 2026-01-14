@@ -1,4 +1,53 @@
-# Changelog
+# Shuventory Changelog
+
+This is a fork of [InvenTree](https://github.com/inventree/InvenTree) with reduced functionality, focused on inventory management and purchasing only.
+
+## Shuventory 1.0.0 - 2026-01-14
+
+### Removed Features (from InvenTree)
+
+The following features have been **disabled** to create a leaner system:
+
+#### Manufacturing / Build Orders
+- `/build/` API routes disabled
+- `/manufacturing/*` frontend routes removed
+- Build navigation and search removed from UI
+
+#### Sales Orders & Returns
+- `/order/so/*` API routes disabled (sales orders)
+- `/order/so-line/*` API routes disabled (sales order line items)
+- `/order/so-extra-line/*` API routes disabled
+- `/order/so-allocation/*` API routes disabled
+- `/order/ro/*` API routes disabled (return orders)
+- `/order/ro-line/*` API routes disabled (return order line items)
+- `/order/ro-extra-line/*` API routes disabled
+- `/sales/*` frontend routes removed
+- Sales and return order navigation/search removed from UI
+- Customer functionality hidden (Supplier/Manufacturer retained)
+
+#### Machine / Label Printer Integration
+- `/machine/` API routes disabled
+- Machine app functionality hidden
+
+### Retained Features
+
+- **Parts & Categories** - Full part management
+- **Stock & Locations** - Stock tracking and locations
+- **Purchase Orders** - Full PO workflow
+- **Companies** - Suppliers and Manufacturers (not Customers)
+- **Reports** - Report generation
+- **Users & Auth** - Full authentication
+- **Plugins** - Plugin system intact
+
+### Notes
+
+- Django apps remain registered for database schema integrity
+- Models and migrations are preserved (no data loss)
+- Only API routes and UI elements have been disabled
+
+---
+
+# InvenTree Changelog (Upstream)
 
 All notable changes to this project will be documented in this file (starting with 1.0.0).
 
