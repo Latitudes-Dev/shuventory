@@ -1947,221 +1947,45 @@ order_api_urls = [
             ),
         ]),
     ),
-    # API endpoints for sales orders
-    path(
-        'so/',
-        include([
-            path(
-                'shipment/',
-                include([
-                    path(
-                        '<int:pk>/',
-                        include([
-                            path(
-                                'ship/',
-                                SalesOrderShipmentComplete.as_view(),
-                                name='api-so-shipment-ship',
-                            ),
-                            meta_path(models.SalesOrderShipment),
-                            path(
-                                '',
-                                SalesOrderShipmentDetail.as_view(),
-                                name='api-so-shipment-detail',
-                            ),
-                        ]),
-                    ),
-                    path(
-                        '',
-                        SalesOrderShipmentList.as_view(),
-                        name='api-so-shipment-list',
-                    ),
-                ]),
-            ),
-            # Sales order detail view
-            path(
-                '<int:pk>/',
-                include([
-                    path(
-                        'allocate/',
-                        SalesOrderAllocate.as_view(),
-                        name='api-so-allocate',
-                    ),
-                    path(
-                        'allocate-serials/',
-                        SalesOrderAllocateSerials.as_view(),
-                        name='api-so-allocate-serials',
-                    ),
-                    path('hold/', SalesOrderHold.as_view(), name='api-so-hold'),
-                    path('cancel/', SalesOrderCancel.as_view(), name='api-so-cancel'),
-                    path('issue/', SalesOrderIssue.as_view(), name='api-so-issue'),
-                    path(
-                        'complete/',
-                        SalesOrderComplete.as_view(),
-                        name='api-so-complete',
-                    ),
-                    meta_path(models.SalesOrder),
-                    # SalesOrder detail endpoint
-                    path('', SalesOrderDetail.as_view(), name='api-so-detail'),
-                ]),
-            ),
-            # Sales order status code information
-            path(
-                'status/',
-                StatusView.as_view(),
-                {StatusView.MODEL_REF: SalesOrderStatus},
-                name='api-so-status-codes',
-            ),
-            # Sales order list view
-            path('', SalesOrderList.as_view(), name='api-so-list'),
-        ]),
-    ),
-    # API endpoints for sales order line items
-    path(
-        'so-line/',
-        include([
-            path(
-                '<int:pk>/',
-                include([
-                    meta_path(models.SalesOrderLineItem),
-                    path(
-                        '',
-                        SalesOrderLineItemDetail.as_view(),
-                        name='api-so-line-detail',
-                    ),
-                ]),
-            ),
-            path('', SalesOrderLineItemList.as_view(), name='api-so-line-list'),
-        ]),
-    ),
-    # API endpoints for sales order extra line
-    path(
-        'so-extra-line/',
-        include([
-            path(
-                '<int:pk>/',
-                include([
-                    meta_path(models.SalesOrderExtraLine),
-                    path(
-                        '',
-                        SalesOrderExtraLineDetail.as_view(),
-                        name='api-so-extra-line-detail',
-                    ),
-                ]),
-            ),
-            path('', SalesOrderExtraLineList.as_view(), name='api-so-extra-line-list'),
-        ]),
-    ),
-    # API endpoints for sales order allocations
-    path(
-        'so-allocation/',
-        include([
-            path(
-                '<int:pk>/',
-                SalesOrderAllocationDetail.as_view(),
-                name='api-so-allocation-detail',
-            ),
-            path('', SalesOrderAllocationList.as_view(), name='api-so-allocation-list'),
-        ]),
-    ),
-    # API endpoints for return orders
-    path(
-        'ro/',
-        include([
-            # Return Order detail endpoints
-            path(
-                '<int:pk>/',
-                include([
-                    path(
-                        'cancel/',
-                        ReturnOrderCancel.as_view(),
-                        name='api-return-order-cancel',
-                    ),
-                    path('hold/', ReturnOrderHold.as_view(), name='api-ro-hold'),
-                    path(
-                        'complete/',
-                        ReturnOrderComplete.as_view(),
-                        name='api-return-order-complete',
-                    ),
-                    path(
-                        'issue/',
-                        ReturnOrderIssue.as_view(),
-                        name='api-return-order-issue',
-                    ),
-                    path(
-                        'receive/',
-                        ReturnOrderReceive.as_view(),
-                        name='api-return-order-receive',
-                    ),
-                    meta_path(models.ReturnOrder),
-                    path(
-                        '', ReturnOrderDetail.as_view(), name='api-return-order-detail'
-                    ),
-                ]),
-            ),
-            # Return order status code information
-            path(
-                'status/',
-                StatusView.as_view(),
-                {StatusView.MODEL_REF: ReturnOrderStatus},
-                name='api-return-order-status-codes',
-            ),
-            # Return Order list
-            path('', ReturnOrderList.as_view(), name='api-return-order-list'),
-        ]),
-    ),
-    # API endpoints for return order lines
-    path(
-        'ro-line/',
-        include([
-            path(
-                '<int:pk>/',
-                include([
-                    meta_path(models.ReturnOrderLineItem),
-                    path(
-                        '',
-                        ReturnOrderLineItemDetail.as_view(),
-                        name='api-return-order-line-detail',
-                    ),
-                ]),
-            ),
-            # Return order line item status code information
-            path(
-                'status/',
-                StatusView.as_view(),
-                {StatusView.MODEL_REF: ReturnOrderLineStatus},
-                name='api-return-order-line-status-codes',
-            ),
-            path(
-                '', ReturnOrderLineItemList.as_view(), name='api-return-order-line-list'
-            ),
-        ]),
-    ),
-    # API endpoints for return order extra line
-    path(
-        'ro-extra-line/',
-        include([
-            path(
-                '<int:pk>/',
-                include([
-                    meta_path(models.ReturnOrderExtraLine),
-                    path(
-                        '',
-                        ReturnOrderExtraLineDetail.as_view(),
-                        name='api-return-order-extra-line-detail',
-                    ),
-                ]),
-            ),
-            path(
-                '',
-                ReturnOrderExtraLineList.as_view(),
-                name='api-return-order-extra-line-list',
-            ),
-        ]),
-    ),
-    # API endpoint for subscribing to ICS calendar of purchase/sales/return orders
+    # SHUVENTORY: Sales orders API disabled
+    # path(
+    #     'so/',
+    #     include([...]),
+    # ),
+    # SHUVENTORY: Sales order line items API disabled
+    # path(
+    #     'so-line/',
+    #     include([...]),
+    # ),
+    # SHUVENTORY: Sales order extra line API disabled
+    # path(
+    #     'so-extra-line/',
+    #     include([...]),
+    # ),
+    # SHUVENTORY: Sales order allocations API disabled
+    # path(
+    #     'so-allocation/',
+    #     include([...]),
+    # ),
+    # SHUVENTORY: Return orders API disabled
+    # path(
+    #     'ro/',
+    #     include([...]),
+    # ),
+    # SHUVENTORY: Return order lines API disabled
+    # path(
+    #     'ro-line/',
+    #     include([...]),
+    # ),
+    # SHUVENTORY: Return order extra line API disabled
+    # path(
+    #     'ro-extra-line/',
+    #     include([...]),
+    # ),
+    # API endpoint for subscribing to ICS calendar (purchase orders only now)
     re_path(
-        r'^calendar/(?P<ordertype>purchase-order|sales-order|return-order)/calendar.ics',
+        r'^calendar/(?P<ordertype>purchase-order)/calendar.ics',
         OrderCalendarExport(),
-        name='api-po-so-calendar',
+        name='api-po-calendar',
     ),
 ]
