@@ -16,6 +16,7 @@ from flags.urls import flagged_path
 from oauth2_provider import urls as oauth2_urls
 from sesame.views import LoginView
 
+# SHUVENTORY: APIs imported but routes disabled below
 import build.api
 import common.api
 import company.api
@@ -53,11 +54,13 @@ apipatterns = [
     # Global search
     path('admin/', include(common.api.admin_api_urls)),
     path('bom/', include(part.api.bom_api_urls)),
-    path('build/', include(build.api.build_api_urls)),
+    # SHUVENTORY: Removed build/manufacturing API
+    # path('build/', include(build.api.build_api_urls)),
     path('company/', include(company.api.company_api_urls)),
     path('importer/', include(importer.api.importer_api_urls)),
     path('label/', include(report.api.label_api_urls)),
-    path('machine/', include(machine.api.machine_api_urls)),
+    # SHUVENTORY: Removed machine/label printer API
+    # path('machine/', include(machine.api.machine_api_urls)),
     path('order/', include(order.api.order_api_urls)),
     path('part/', include(part.api.part_api_urls)),
     path('report/', include(report.api.report_api_urls)),

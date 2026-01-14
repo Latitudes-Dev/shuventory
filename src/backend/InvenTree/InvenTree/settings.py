@@ -281,6 +281,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.admindocs',
     # InvenTree apps
+    # SHUVENTORY: Keep build/machine apps for DB schema but APIs/UI disabled
     'build.apps.BuildConfig',
     'common.apps.CommonConfig',
     'plugin.apps.PluginAppConfig',  # Plugin app runs before all apps that depend on the isPluginRegistryLoaded function
